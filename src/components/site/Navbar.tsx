@@ -24,7 +24,7 @@ export function Navbar() {
         <Link to="/" className="flex items-center gap-2.5">
           <img src={iso} alt="Paralelo" className="h-9 w-9" />
           <span className="font-display text-lg font-semibold tracking-tight">
-            paralelo
+            para<span className="text-accent">l</span>e<span className="text-accent">l</span>o
           </span>
         </Link>
 
