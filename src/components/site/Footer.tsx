@@ -26,10 +26,10 @@ export function Footer() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="mailto:hola@paralelo.studio"
+                href="mailto:hola@paralelo.tech"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-medium text-ink shadow-elegant transition-smooth hover:translate-y-[-2px]"
               >
-                ✉ hola@paralelo.studio
+                ✉ hola@paralelo.tech
               </a>
               <a
                 href="https://wa.me/5493764000000"
