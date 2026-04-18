@@ -8,7 +8,7 @@ const values = [
   {
     title: "Sistemas a medida",
     description:
-      "CRMs, ERPs, paneles internos e integraciones. Software pensado para resolver problemas reales de tu operación.",
+      "Plataformas, paneles internos e integraciones. Software pensado para resolver problemas reales de tu operación.",
   },
   {
     title: "Producto end-to-end",
@@ -37,8 +37,8 @@ export function About() {
             </h2>
             <p className="mt-6 text-lg text-muted-foreground">
               Nacimos en <strong className="text-foreground">2025 en Misiones, Argentina</strong>,
-              con foco en construir <strong className="text-foreground">sistemas a medida</strong> —
-              CRMs, plataformas internas y productos digitales — para empresas y
+              con foco en construir <strong className="text-foreground">software web a medida</strong>:
+              sistemas, plataformas internas y productos digitales para empresas y
               equipos que necesitan algo más que una plantilla.
             </p>
             <p className="mt-4 text-muted-foreground">
