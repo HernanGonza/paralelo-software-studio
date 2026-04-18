@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Estudio de software fundado en Misiones, Argentina. Construimos sistemas a medida, CRMs, plataformas internas y sitios web modernos.",
+          "Estudio de software fundado en Misiones, Argentina. Construimos software web a medida: sistemas, plataformas internas y productos digitales.",
       },
       { property: "og:title", content: "Paralelo · Estudio de software" },
       {
         property: "og:description",
         content:
-          "Sistemas a medida, CRMs y productos digitales. Misiones, Argentina — desde 2025.",
+          "Software web a medida: sistemas y productos digitales. Misiones, Argentina — desde 2025.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

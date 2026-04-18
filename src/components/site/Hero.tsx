@@ -24,8 +24,8 @@ export function Hero() {
             className="mx-auto mt-8 max-w-2xl animate-fade-up text-lg text-muted-foreground md:text-xl"
             style={{ animationDelay: "120ms" }}
           >
-            Diseñamos y desarrollamos sistemas a medida — CRMs, plataformas internas
-            y productos digitales — además de sitios web pensados para escalar.
+            Diseñamos y desarrollamos software web a medida: sistemas, plataformas
+            internas y productos digitales pensados para escalar con tu negocio.
           </p>
 
           <div
