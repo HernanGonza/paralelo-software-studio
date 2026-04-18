@@ -6,14 +6,14 @@ const stats = [
 
 const values = [
   {
-    title: "Diseño con propósito",
+    title: "Sistemas a medida",
     description:
-      "No hacemos plantillas. Cada interfaz nace de tu marca, tu público y los objetivos del producto.",
+      "CRMs, ERPs, paneles internos e integraciones. Software pensado para resolver problemas reales de tu operación.",
   },
   {
-    title: "Código moderno",
+    title: "Producto end-to-end",
     description:
-      "Stack actual, performance y SEO de primera. Webs rápidas que escalan con vos.",
+      "Desde la arquitectura y la base de datos hasta la interfaz. Stack moderno, performance y código mantenible.",
   },
   {
     title: "Trabajo en paralelo",
@@ -32,17 +32,18 @@ export function About() {
               <span className="h-px w-8 bg-celeste" /> Nosotros
             </span>
             <h2 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-              Un estudio joven con
+              Un estudio de software con
               <span className="text-gradient"> ambición global.</span>
             </h2>
             <p className="mt-6 text-lg text-muted-foreground">
               Nacimos en <strong className="text-foreground">2025 en Misiones, Argentina</strong>,
-              con la idea de acercar diseño y desarrollo de nivel internacional a
-              marcas, emprendimientos y equipos que quieren destacar.
+              con foco en construir <strong className="text-foreground">sistemas a medida</strong> —
+              CRMs, plataformas internas y productos digitales — para empresas y
+              equipos que necesitan algo más que una plantilla.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Trabajamos en paralelo con vos: escuchamos, prototipamos y construimos
-              productos digitales que combinan estética, claridad y resultados.
+              También hacemos sitios web cuando el proyecto lo pide. Trabajamos en
+              paralelo con vos: escuchamos, prototipamos y entregamos producto.
             </p>
 
             <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
@@ -77,7 +78,7 @@ export function About() {
               ))}
               <article className="rounded-2xl border border-primary/20 bg-gradient-primary p-7 text-primary-foreground shadow-elegant">
                 <p className="font-display text-xl font-semibold leading-snug">
-                  "Diseñamos productos que valen la pena visitar dos veces."
+                  "Construimos software que tu equipo realmente quiere usar."
                 </p>
                 <p className="mt-4 text-sm opacity-80">— Equipo Paralelo</p>
               </article>
