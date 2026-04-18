@@ -98,7 +98,7 @@ export function Footer() {
         <div className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/10 pt-8 md:flex-row md:items-center">
           <img src={logo} alt="Paralelo" className="h-12 w-auto md:h-14" loading="lazy" />
           <div className="flex items-center gap-6 text-xs text-primary-foreground/50">
-            <span>© {new Date().getFullYear()} Paralelo Studio</span>
+            <span>© {new Date().getFullYear()} Paralelo Software Studio</span>
             <Link to="/admin" className="transition-colors hover:text-primary-foreground">
               Admin
             </Link>

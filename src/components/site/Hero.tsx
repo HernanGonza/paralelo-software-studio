@@ -10,22 +10,22 @@ export function Hero() {
           <div className="mb-8 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-celeste" />
-              Estudio web · Misiones, Argentina
+              Estudio de software · Misiones, Argentina
             </span>
           </div>
 
           <h1 className="animate-fade-up font-display text-5xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-7xl lg:text-8xl">
-            Construimos webs
+            Construimos software
             <br />
-            <span className="text-gradient">en paralelo</span> a tus ideas.
+            <span className="text-gradient">en paralelo</span> a tu negocio.
           </h1>
 
           <p
             className="mx-auto mt-8 max-w-2xl animate-fade-up text-lg text-muted-foreground md:text-xl"
             style={{ animationDelay: "120ms" }}
           >
-            Diseño y desarrollo web a medida. Productos digitales modernos,
-            rápidos y pensados para crecer con tu marca.
+            Diseñamos y desarrollamos sistemas a medida — CRMs, plataformas internas
+            y productos digitales — además de sitios web pensados para escalar.
           </p>
 
           <div

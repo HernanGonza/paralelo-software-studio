@@ -8,17 +8,17 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Paralelo · Estudio web — Diseño y desarrollo a medida" },
+      { title: "Paralelo · Estudio de software — Sistemas a medida" },
       {
         name: "description",
         content:
-          "Estudio de diseño y desarrollo web fundado en Misiones, Argentina. Construimos productos digitales modernos, rápidos y a medida.",
+          "Estudio de software fundado en Misiones, Argentina. Construimos sistemas a medida, CRMs, plataformas internas y sitios web modernos.",
       },
-      { property: "og:title", content: "Paralelo · Estudio web" },
+      { property: "og:title", content: "Paralelo · Estudio de software" },
       {
         property: "og:description",
         content:
-          "Diseño y desarrollo web a medida. Misiones, Argentina — desde 2025.",
+          "Sistemas a medida, CRMs y productos digitales. Misiones, Argentina — desde 2025.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
