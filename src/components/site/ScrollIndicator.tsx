@@ -75,7 +75,7 @@ export function ScrollMouse() {
           className="h-3 w-3" 
           fill="currentColor" 
           viewBox="0 0 24 24"
-          style={{ animation: "bounce 2.4s ease-in-out infinite", animationDelay: "0ms" }}
+          style={{ animation: "scroll-bounce 2.4s ease-in-out infinite", animationDelay: "0ms" }}
         >
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
         </svg>
@@ -83,7 +83,7 @@ export function ScrollMouse() {
           className="h-3 w-3" 
           fill="currentColor" 
           viewBox="0 0 24 24"
-          style={{ animation: "bounce 2.4s ease-in-out infinite", animationDelay: "300ms" }}
+          style={{ animation: "scroll-bounce 2.4s ease-in-out infinite", animationDelay: "300ms" }}
         >
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
         </svg>
