@@ -11,20 +11,36 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="grid gap-16 lg:grid-cols-12">
+          {/* Columna principal */}
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-celeste">
+            <span 
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-celeste"
+              data-usal="slide-l duration-600"
+            >
               <span className="h-px w-8 bg-celeste" /> Contacto
             </span>
-            <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+            
+            <h2 
+              className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
+              data-usal="fade-u split-word split-delay-60 duration-800 delay-100"
+            >
               ¿Tenés una idea?
               <br />
               <span className="text-gradient">Trabajemos en paralelo.</span>
             </h2>
-            <p className="mt-6 max-w-xl text-base text-primary-foreground/70 md:text-lg">
+            
+            <p 
+              className="mt-6 max-w-xl text-base text-primary-foreground/70 md:text-lg"
+              data-usal="fade-r duration-700 delay-400"
+            >
               Contanos en qué estás trabajando y te respondemos en menos de 24hs.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            {/* Botones de contacto */}
+            <div 
+              className="mt-10 flex flex-wrap gap-3"
+              data-usal="split-item split-zoomin split-delay-100 delay-500 duration-700"
+            >
               <a
                 href="mailto:hola@paralelo.tech"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-6 py-3 text-sm font-medium text-ink shadow-elegant transition-smooth hover:translate-y-[-2px]"
@@ -42,9 +58,10 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Columna lateral */}
           <div className="lg:col-span-5">
             <div className="grid gap-8 sm:grid-cols-2">
-              <div>
+              <div data-usal="fade-d duration-700 delay-300">
                 <p className="text-xs uppercase tracking-wider text-primary-foreground/50">
                   Ubicación
                 </p>
@@ -54,11 +71,15 @@ export function Footer() {
                   Argentina 🇦🇷
                 </p>
               </div>
-              <div>
+              
+              <div data-usal="fade-d duration-700 delay-450">
                 <p className="text-xs uppercase tracking-wider text-primary-foreground/50">
                   Seguinos
                 </p>
-                <ul className="mt-2 space-y-1.5 text-sm">
+                <ul 
+                  className="mt-2 space-y-1.5 text-sm"
+                  data-usal="split-item split-fade-l split-delay-80 delay-550"
+                >
                   <li>
                     <a
                       href="https://instagram.com"
@@ -95,8 +116,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/10 pt-8 md:flex-row md:items-center">
-          <img src={logo} alt="Paralelo" className="h-12 w-auto md:h-14" loading="lazy" />
+        {/* Footer bottom */}
+        <div 
+          className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/10 pt-8 md:flex-row md:items-center"
+          data-usal="fade-u duration-800 delay-700"
+        >
+          <img 
+            src={logo} 
+            alt="Paralelo" 
+            className="h-12 w-auto md:h-14" 
+            loading="lazy" 
+          />
           <div className="flex items-center gap-6 text-xs text-primary-foreground/50">
             <span>© {new Date().getFullYear()} Paralelo Software Studio</span>
             <Link to="/admin" className="transition-colors hover:text-primary-foreground">
