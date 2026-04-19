@@ -1,6 +1,5 @@
 import iso from "@/assets/paralelo-iso.png";
 import { FloatingParticles } from "./FloatingParticles";
-import { ScrollMouse } from "./ScrollIndicator";
 
 export function Hero() {
   return (
@@ -74,8 +73,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <ScrollMouse />
     </section>
   );
 }
