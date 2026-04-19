@@ -39,17 +39,17 @@ export function FloatingParticles() {
 
     const initParticles = () => {
       particles.current = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 30000);
+      const particleCount = Math.floor((canvas.width * canvas.height) / 18000);
       
-      for (let i = 0; i < Math.min(particleCount, 12); i++) {
+      for (let i = 0; i < Math.min(particleCount, 28); i++) {
         const types: ("circle" | "line" | "dot")[] = ["circle", "line", "dot"];
         particles.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 4 + 2,
-          speedX: (Math.random() - 0.5) * 0.4,
-          speedY: (Math.random() - 0.5) * 0.4,
-          opacity: Math.random() * 0.4 + 0.15,
+          size: Math.random() * 5 + 3,
+          speedX: (Math.random() - 0.5) * 0.5,
+          speedY: (Math.random() - 0.5) * 0.5,
+          opacity: Math.random() * 0.5 + 0.4,
           type: types[Math.floor(Math.random() * types.length)],
           rotation: Math.random() * Math.PI * 2,
           rotationSpeed: (Math.random() - 0.5) * 0.015,
@@ -84,20 +84,20 @@ export function FloatingParticles() {
         if (particle.type === "circle") {
           ctx.beginPath();
           ctx.arc(0, 0, particle.size, 0, Math.PI * 2);
-          ctx.strokeStyle = particle.color.replace("1)", "0.6)");
+          ctx.strokeStyle = particle.color;
           ctx.lineWidth = 1.5;
           ctx.stroke();
         } else if (particle.type === "line") {
           ctx.beginPath();
           ctx.moveTo(-particle.size * 3, 0);
           ctx.lineTo(particle.size * 3, 0);
-          ctx.strokeStyle = particle.color.replace("1)", "0.5)");
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = particle.color;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         } else {
           ctx.beginPath();
-          ctx.arc(0, 0, particle.size / 2, 0, Math.PI * 2);
-          ctx.fillStyle = particle.color.replace("1)", "0.7)");
+          ctx.arc(0, 0, particle.size / 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = particle.color;
           ctx.fill();
         }
 
@@ -121,7 +121,7 @@ export function FloatingParticles() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full"
-      style={{ pointerEvents: "none", zIndex: 1 }}
+      style={{ pointerEvents: "none" }}
     />
   );
 }
