@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function CursorTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -6,6 +6,7 @@ export function CursorTrail() {
   const points = useRef<{ x: number; y: number; age: number }[]>([]);
   const mouse = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,8 +18,7 @@ export function CursorTrail() {
 
     // Ocultar cursor nativo en todo el documento
     document.body.style.cursor = "none";
-    
-    // Aplicar cursor none a todos los elementos
+
     const style = document.createElement("style");
     style.id = "custom-cursor-style";
     style.textContent = `
@@ -35,19 +35,27 @@ export function CursorTrail() {
     resize();
     window.addEventListener("resize", resize);
 
+    const isInteractive = (el: Element | null): boolean => {
+      if (!el) return false;
+      return Boolean(
+        el.closest(
+          "a, button, [role='button'], input, textarea, select, label, summary, [data-cursor='hover']"
+        )
+      );
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
-      
-      // Mover cursor custom
+
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-      
+
       points.current.push({ x: e.clientX, y: e.clientY, age: 0 });
-      
-      // Mantener máximo 15 puntos para trail corto
-      if (points.current.length > 15) {
-        points.current.shift();
-      }
+      if (points.current.length > 15) points.current.shift();
+
+      const target = e.target as Element | null;
+      const hovering = isInteractive(target);
+      setIsHovering((prev) => (prev !== hovering ? hovering : prev));
     };
 
     const handleMouseEnter = () => {
@@ -65,17 +73,15 @@ export function CursorTrail() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Actualizar edad y filtrar puntos viejos
       points.current = points.current.filter((point) => {
         point.age += 1;
         return point.age < 15;
       });
 
-      // Dibujar trail con gradiente
       points.current.forEach((point) => {
         const opacity = 1 - point.age / 15;
         const size = (1 - point.age / 15) * 6;
-        
+
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
           point.x, point.y, size
@@ -103,9 +109,7 @@ export function CursorTrail() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
@@ -117,7 +121,7 @@ export function CursorTrail() {
         className="pointer-events-none fixed inset-0 z-[9998] hidden md:block"
         style={{ mixBlendMode: "screen" }}
       />
-      
+
       {/* Cursor custom */}
       <div
         ref={cursorRef}
@@ -128,19 +132,40 @@ export function CursorTrail() {
         }}
       >
         {/* Círculo exterior */}
-        <div 
-          className="absolute -left-5 -top-5 h-10 w-10 rounded-full border-2"
+        <div
+          className="absolute rounded-full border-2"
           style={{
-            borderColor: "rgba(50, 80, 180, 0.5)",
-            transition: "transform 0.15s ease-out, border-color 0.2s ease",
+            left: isHovering ? "-22px" : "-20px",
+            top: isHovering ? "-22px" : "-20px",
+            height: isHovering ? "44px" : "40px",
+            width: isHovering ? "44px" : "40px",
+            borderColor: isHovering
+              ? "rgba(48, 188, 229, 0.9)"
+              : "rgba(50, 80, 180, 0.5)",
+            backgroundColor: isHovering
+              ? "rgba(48, 188, 229, 0.12)"
+              : "transparent",
+            transform: isHovering ? "scale(1.15)" : "scale(1)",
+            transition:
+              "transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, background-color 0.2s ease, height 0.2s ease, width 0.2s ease, left 0.2s ease, top 0.2s ease",
           }}
         />
         {/* Punto central */}
-        <div 
-          className="absolute -left-1.5 -top-1.5 h-3 w-3 rounded-full"
+        <div
+          className="absolute rounded-full"
           style={{
-            backgroundColor: "rgb(50, 80, 180)",
-            boxShadow: "0 0 10px rgba(50, 80, 180, 0.5), 0 0 20px rgba(48, 188, 229, 0.3)",
+            left: isHovering ? "-3px" : "-6px",
+            top: isHovering ? "-3px" : "-6px",
+            height: isHovering ? "6px" : "12px",
+            width: isHovering ? "6px" : "12px",
+            backgroundColor: isHovering
+              ? "rgb(48, 188, 229)"
+              : "rgb(50, 80, 180)",
+            boxShadow: isHovering
+              ? "0 0 14px rgba(48, 188, 229, 0.7), 0 0 28px rgba(48, 188, 229, 0.4)"
+              : "0 0 10px rgba(50, 80, 180, 0.5), 0 0 20px rgba(48, 188, 229, 0.3)",
+            transition:
+              "all 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
       </div>
