@@ -1,8 +1,27 @@
+import { useCountUp } from "@/hooks/use-count-up";
+
 const stats = [
-  { value: "2025", label: "Año de fundación" },
-  { value: "Misiones", label: "Argentina" },
-  { value: "100%", label: "Hecho a medida" },
+  { value: "2025", label: "Año de fundación", numeric: false as const },
+  { value: "Misiones", label: "Argentina", numeric: false as const },
+  { value: 100, label: "Hecho a medida", numeric: true as const, suffix: "%" },
 ];
+
+function StatValue({
+  stat,
+}: {
+  stat: { value: string | number; numeric: boolean; suffix?: string };
+}) {
+  if (!stat.numeric) {
+    return <>{stat.value}</>;
+  }
+  const { value, ref } = useCountUp({ end: stat.value as number, duration: 1800 });
+  return (
+    <span ref={ref as React.RefObject<HTMLSpanElement>}>
+      {value}
+      {stat.suffix ?? ""}
+    </span>
+  );
+}
 
 const values = [
   {
@@ -70,7 +89,7 @@ export function About() {
               {stats.map((s) => (
                 <div key={s.label}>
                   <dt className="font-display text-2xl font-bold text-foreground md:text-3xl">
-                    {s.value}
+                    <StatValue stat={s} />
                   </dt>
                   <dd className="mt-1 text-xs text-muted-foreground">{s.label}</dd>
                 </div>
@@ -87,7 +106,7 @@ export function About() {
                   className={`group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-celeste/40 hover:shadow-elegant ${
                     i === 0 ? "sm:translate-y-6" : ""
                   } ${i === 2 ? "sm:translate-y-6" : ""}`}
-                  data-usal={`flip-u duration-800 delay-${200 + i * 150}`}
+                  data-usal={`fade-u blur duration-900 delay-${200 + i * 120}`}
                 >
                   
                   <div className="relative">
