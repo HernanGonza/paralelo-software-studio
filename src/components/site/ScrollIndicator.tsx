@@ -64,7 +64,7 @@ export function ScrollMouse() {
         <div 
           className="absolute left-1/2 top-2 h-2 w-0.5 -translate-x-1/2 rounded-full bg-current"
           style={{
-            animation: "scrollWheel 1.5s ease-in-out infinite",
+            animation: "scrollWheel 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite",
           }}
         />
       </div>
@@ -72,18 +72,18 @@ export function ScrollMouse() {
       {/* Flechitas */}
       <div className="flex flex-col items-center -space-y-1">
         <svg 
-          className="h-3 w-3 animate-bounce" 
+          className="h-3 w-3" 
           fill="currentColor" 
           viewBox="0 0 24 24"
-          style={{ animationDelay: "0ms" }}
+          style={{ animation: "bounce 2.4s ease-in-out infinite", animationDelay: "0ms" }}
         >
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
         </svg>
         <svg 
-          className="h-3 w-3 animate-bounce" 
+          className="h-3 w-3" 
           fill="currentColor" 
           viewBox="0 0 24 24"
-          style={{ animationDelay: "150ms" }}
+          style={{ animation: "bounce 2.4s ease-in-out infinite", animationDelay: "300ms" }}
         >
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
         </svg>
