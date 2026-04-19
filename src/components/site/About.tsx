@@ -1,8 +1,27 @@
+import { useCountUp } from "@/hooks/use-count-up";
+
 const stats = [
-  { value: "2025", label: "Año de fundación" },
-  { value: "Misiones", label: "Argentina" },
-  { value: "100%", label: "Hecho a medida" },
+  { value: "2025", label: "Año de fundación", numeric: false as const },
+  { value: "Misiones", label: "Argentina", numeric: false as const },
+  { value: 100, label: "Hecho a medida", numeric: true as const, suffix: "%" },
 ];
+
+function StatValue({
+  stat,
+}: {
+  stat: { value: string | number; numeric: boolean; suffix?: string };
+}) {
+  if (!stat.numeric) {
+    return <>{stat.value}</>;
+  }
+  const { value, ref } = useCountUp({ end: stat.value as number, duration: 1800 });
+  return (
+    <span ref={ref as React.RefObject<HTMLSpanElement>}>
+      {value}
+      {stat.suffix ?? ""}
+    </span>
+  );
+}
 
 const values = [
   {
