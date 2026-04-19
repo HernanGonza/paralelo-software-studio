@@ -10,12 +10,13 @@ interface Particle {
   type: "circle" | "line" | "dot";
   rotation: number;
   rotationSpeed: number;
+  color: string;
 }
 
 export function FloatingParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,6 +24,12 @@ export function FloatingParticles() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const colors = [
+      "rgba(48, 188, 229, 1)",   // celeste
+      "rgba(85, 136, 230, 1)",   // azul medio
+      "rgba(50, 80, 180, 1)",    // azul oscuro
+    ];
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -32,20 +39,21 @@ export function FloatingParticles() {
 
     const initParticles = () => {
       particles.current = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+      const particleCount = Math.floor((canvas.width * canvas.height) / 30000);
       
-      for (let i = 0; i < Math.min(particleCount, 15); i++) {
+      for (let i = 0; i < Math.min(particleCount, 12); i++) {
         const types: ("circle" | "line" | "dot")[] = ["circle", "line", "dot"];
         particles.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 4 + 2,
-          speedX: (Math.random() - 0.5) * 0.3,
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.3 + 0.1,
+          speedX: (Math.random() - 0.5) * 0.4,
+          speedY: (Math.random() - 0.5) * 0.4,
+          opacity: Math.random() * 0.4 + 0.15,
           type: types[Math.floor(Math.random() * types.length)],
           rotation: Math.random() * Math.PI * 2,
-          rotationSpeed: (Math.random() - 0.5) * 0.01,
+          rotationSpeed: (Math.random() - 0.5) * 0.015,
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
     };
@@ -73,31 +81,23 @@ export function FloatingParticles() {
         ctx.rotate(particle.rotation);
         ctx.globalAlpha = particle.opacity;
 
-        // Colores azul/celeste
-        const colors = [
-          "rgba(48, 188, 229, 1)",   // celeste
-          "rgba(85, 136, 230, 1)",   // azul medio
-          "rgba(50, 80, 180, 1)",    // azul oscuro
-        ];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
         if (particle.type === "circle") {
           ctx.beginPath();
           ctx.arc(0, 0, particle.size, 0, Math.PI * 2);
-          ctx.strokeStyle = "rgba(48, 188, 229, 0.6)";
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = particle.color.replace("1)", "0.6)");
+          ctx.lineWidth = 1.5;
           ctx.stroke();
         } else if (particle.type === "line") {
           ctx.beginPath();
-          ctx.moveTo(-particle.size * 2, 0);
-          ctx.lineTo(particle.size * 2, 0);
-          ctx.strokeStyle = "rgba(85, 136, 230, 0.5)";
+          ctx.moveTo(-particle.size * 3, 0);
+          ctx.lineTo(particle.size * 3, 0);
+          ctx.strokeStyle = particle.color.replace("1)", "0.5)");
           ctx.lineWidth = 1;
           ctx.stroke();
         } else {
           ctx.beginPath();
           ctx.arc(0, 0, particle.size / 2, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(48, 188, 229, 0.7)";
+          ctx.fillStyle = particle.color.replace("1)", "0.7)");
           ctx.fill();
         }
 
@@ -120,8 +120,8 @@ export function FloatingParticles() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 -z-5 h-full w-full"
-      style={{ pointerEvents: "none" }}
+      className="absolute inset-0 h-full w-full"
+      style={{ pointerEvents: "none", zIndex: 1 }}
     />
   );
 }

@@ -90,10 +90,10 @@ export function About() {
                   data-usal={`flip-u duration-800 delay-${200 + i * 150}`}
                 >
                   {/* Efecto shine */}
-                  <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine" />
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine pointer-events-none" />
                   
                   {/* Borde gradiente */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-celeste/10 via-transparent to-primary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-celeste/10 via-transparent to-primary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
                   
                   <div className="relative">
                     <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 font-display text-sm font-bold text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
@@ -109,11 +109,11 @@ export function About() {
               
               {/* Quote card */}
               <article 
-                className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-primary p-7 text-primary-foreground shadow-elegant"
+                className="card-shine group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-primary p-7 text-primary-foreground shadow-elegant"
                 data-usal="zoomin blur duration-1000 delay-700"
               >
                 {/* Efecto shine */}
-                <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:animate-shine" />
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:animate-shine pointer-events-none" />
                 
                 <div className="relative">
                   <p className="font-display text-xl font-semibold leading-snug">

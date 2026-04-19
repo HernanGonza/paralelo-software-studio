@@ -65,10 +65,10 @@
   --radius: 0.75rem;
 
   /* Brand */
-  --background: oklch(0.955 0.012 255);          /* warm soft grey-blue, not white */
-  --foreground: oklch(0.14 0.05 265);            /* near black ink */
+  --background: oklch(0.955 0.012 255);
+  --foreground: oklch(0.14 0.05 265);
 
-  --ink: oklch(0.10 0.06 270);                   /* deep ink */
+  --ink: oklch(0.10 0.06 270);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.12 0.05 265);
@@ -76,11 +76,11 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.12 0.05 265);
 
-  --primary: oklch(0.32 0.27 268);               /* electric deep blue (logo) */
+  --primary: oklch(0.32 0.27 268);
   --primary-foreground: oklch(0.985 0.005 250);
-  --primary-glow: oklch(0.55 0.24 268);          /* lighter blue glow */
+  --primary-glow: oklch(0.55 0.24 268);
 
-  --celeste: oklch(0.74 0.13 224);               /* #30BCE5 — exact celeste from logo */
+  --celeste: oklch(0.74 0.13 224);
   --celeste-foreground: oklch(0.10 0.04 250);
 
   --secondary: oklch(0.92 0.015 255);
@@ -89,7 +89,7 @@
   --muted: oklch(0.91 0.018 258);
   --muted-foreground: oklch(0.42 0.04 260);
 
-  --accent: oklch(0.74 0.13 224);                /* #30BCE5 — same as logo highlight */
+  --accent: oklch(0.74 0.13 224);
   --accent-foreground: oklch(0.10 0.04 250);
 
   --destructive: oklch(0.58 0.24 27);
@@ -114,7 +114,6 @@
   --sidebar-border: oklch(0.9 0.015 260);
   --sidebar-ring: oklch(0.55 0.24 268);
 
-  /* Gradients & shadows */
   --gradient-hero: radial-gradient(ellipse at top right, oklch(0.55 0.24 268 / 0.22), transparent 60%),
                    radial-gradient(ellipse at bottom left, oklch(0.72 0.18 268 / 0.16), transparent 55%),
                    linear-gradient(180deg, oklch(0.955 0.012 255), oklch(0.91 0.025 262));
@@ -239,34 +238,25 @@
 
 /* Efecto shine para tarjetas */
 @keyframes shine {
-  from { transform: translateX(-100%) skewX(-12deg); }
-  to { transform: translateX(200%) skewX(-12deg); }
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
 }
-.group:hover .animate-shine {
+.group:hover .animate-shine,
+.group:hover > .animate-shine {
   animation: shine 0.8s ease-out forwards;
 }
 
 /* Scroll wheel animation para el mouse */
-@keyframes scroll-wheel {
-  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(8px); }
+@keyframes scrollWheel {
+  0% { 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(-50%) translateY(8px); 
+  }
 }
-.animate-scroll-wheel {
-  animation: scroll-wheel 1.5s ease-in-out infinite;
-}
-
-/* Bounce lento para flechas */
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(4px); opacity: 1; }
-}
-.animate-bounce-slow {
-  animation: bounce-slow 2s ease-in-out infinite;
-}
-
-/* Delay para animaciones */
-.animation-delay-100 { animation-delay: 100ms; }
-.animation-delay-200 { animation-delay: 200ms; }
 
 /* Scroll horizontal infinito para tech stack */
 @keyframes scroll-x {
@@ -275,11 +265,6 @@
 }
 .animate-scroll-x {
   animation: scroll-x 30s linear infinite;
-}
-
-/* Pause en hover */
-.animate-scroll-x:hover {
-  animation-play-state: paused;
 }
 
 /* Glassmorphism para tarjetas */
@@ -301,6 +286,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  z-index: 1;
 }
 
 .card-shine:hover::before {

@@ -109,10 +109,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       data-usal={`zoomin-u duration-800 delay-${delay}`}
     >
       {/* Borde con gradiente sutil */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-celeste/20 via-transparent to-primary/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-celeste/20 via-transparent to-primary/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
       
       {/* Efecto shine */}
-      <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine" />
+      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine pointer-events-none" />
 
       <div className="relative">
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">

@@ -26,11 +26,11 @@ export function TechStack() {
       {/* Scroll infinito */}
       <div className="relative">
         {/* Fade izquierdo */}
-        <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-card/50 to-transparent" />
+        <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-card/80 to-transparent" />
         {/* Fade derecho */}
-        <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-card/50 to-transparent" />
+        <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-card/80 to-transparent" />
 
-        <div className="flex animate-scroll-x">
+        <div className="flex animate-scroll-x hover:[animation-play-state:paused]">
           {/* Duplicamos para loop infinito */}
           {[...technologies, ...technologies].map((tech, index) => (
             <div

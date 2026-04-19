@@ -1,16 +1,19 @@
 import iso from "@/assets/paralelo-iso.png";
 import { FloatingParticles } from "./FloatingParticles";
-import { ScrollArrow, ScrollMouse } from "./ScrollIndicator";
+import { ScrollMouse } from "./ScrollIndicator";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-hero pt-32 pb-24 md:pt-40 md:pb-32 min-h-screen flex flex-col">
+      {/* Grid background */}
       <div className="absolute inset-0 -z-10 grid-bg" aria-hidden />
       
       {/* Partículas flotantes */}
-      <FloatingParticles />
+      <div className="absolute inset-0 -z-5 overflow-hidden">
+        <FloatingParticles />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-6 flex-1 flex items-center">
+      <div className="mx-auto max-w-7xl px-6 flex-1 flex items-center relative z-10">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
           <div 
@@ -71,9 +74,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicators - dejá los dos y elegí después cuál te gusta */}
+      {/* Scroll Indicator */}
       <ScrollMouse />
-      {/* <ScrollArrow /> */}
     </section>
   );
 }
