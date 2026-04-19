@@ -105,14 +105,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="card-shine group relative block overflow-hidden rounded-3xl border border-border/50 bg-card/80 backdrop-blur-sm shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-celeste/40 hover:shadow-elegant"
+      className="group relative block overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:border-celeste/40 hover:shadow-elegant"
       data-usal={`zoomin-u duration-800 delay-${delay}`}
     >
-      {/* Borde con gradiente sutil */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-celeste/20 via-transparent to-primary/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
-      
-      {/* Efecto shine */}
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine pointer-events-none" />
 
       <div className="relative">
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
