@@ -7,30 +7,40 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-8 flex justify-center">
+          {/* Badge */}
+          <div 
+            className="mb-8 flex justify-center"
+            data-usal="zoomin duration-600"
+          >
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-celeste" />
               Estudio de software · Misiones, Argentina
             </span>
           </div>
 
-          <h1 className="animate-fade-up font-display text-5xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-7xl lg:text-8xl">
+          {/* Título principal - animación sin split para preservar HTML */}
+          <h1 
+            className="font-display text-5xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-7xl lg:text-8xl"
+            data-usal="fade-u duration-800"
+          >
             Construimos software
             <br />
             <span className="text-gradient">en paralelo</span> a tu negocio.
           </h1>
 
+          {/* Subtítulo */}
           <p
-            className="mx-auto mt-8 max-w-2xl animate-fade-up text-lg text-muted-foreground md:text-xl"
-            style={{ animationDelay: "120ms" }}
+            className="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl"
+            data-usal="fade-u delay-200 duration-800"
           >
             Diseñamos y desarrollamos software web a medida: sistemas, plataformas
             internas y productos digitales pensados para escalar con tu negocio.
           </p>
 
+          {/* Botones */}
           <div
-            className="mt-10 flex animate-fade-up flex-col items-center justify-center gap-3 sm:flex-row"
-            style={{ animationDelay: "240ms" }}
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            data-usal="fade-u delay-400 duration-700"
           >
             <a
               href="#proyectos"
@@ -47,7 +57,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute right-[-80px] top-1/2 hidden -translate-y-1/2 opacity-30 md:block">
+        {/* Logo flotante */}
+        <div 
+          className="pointer-events-none absolute right-[-80px] top-1/2 hidden -translate-y-1/2 opacity-30 md:block"
+          data-usal="flip-r blur duration-1200 delay-300"
+        >
           <img src={iso} alt="" className="h-[420px] w-[420px] animate-float-slow" />
         </div>
       </div>

@@ -38,24 +38,35 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="relative scroll-mt-20 bg-secondary/40 py-24 md:py-32"
+      className="relative scroll-mt-20 bg-secondary/40 py-24 md:py-32 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-6">
+        {/* Header */}
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-celeste">
+            <span 
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-celeste"
+              data-usal="fade-r duration-600"
+            >
               <span className="h-px w-8 bg-celeste" /> Proyectos
             </span>
-            <h2 className="mt-6 font-display text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 
+              className="mt-6 font-display text-4xl font-bold tracking-tight md:text-5xl"
+              data-usal="fade-u duration-800 delay-100"
+            >
               Lo que construimos<span className="text-gradient">.</span>
             </h2>
           </div>
-          <p className="max-w-md text-muted-foreground">
+          <p 
+            className="max-w-md text-muted-foreground"
+            data-usal="fade-u duration-700 delay-200"
+          >
             Una selección de productos digitales en los que trabajamos junto a
             equipos y emprendedores.
           </p>
         </div>
 
+        {/* Grid de proyectos */}
         {loading ? (
           <div className="grid gap-6 md:grid-cols-2">
             {[0, 1].map((i) => (
@@ -69,8 +80,8 @@ export function Projects() {
           <EmptyState />
         ) : (
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
+            {projects.map((p, index) => (
+              <ProjectCard key={p.id} project={p} index={index} />
             ))}
           </div>
         )}
@@ -79,7 +90,7 @@ export function Projects() {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const Wrapper = project.project_url ? "a" : "div";
   const wrapperProps = project.project_url
     ? {
@@ -89,10 +100,14 @@ function ProjectCard({ project }: { project: Project }) {
       }
     : {};
 
+  // Usar zoomin vertical para evitar scroll horizontal
+  const delay = 300 + index * 100;
+
   return (
     <Wrapper
       {...wrapperProps}
       className="group block overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-smooth hover:-translate-y-1 hover:border-celeste/60 hover:shadow-elegant"
+      data-usal={`zoomin-u duration-800 delay-${delay}`}
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-muted">
         {project.image_url ? (
@@ -153,7 +168,10 @@ function ProjectCard({ project }: { project: Project }) {
 
 function EmptyState() {
   return (
-    <div className="rounded-3xl border border-dashed border-border bg-card/50 py-20 text-center">
+    <div 
+      className="rounded-3xl border border-dashed border-border bg-card/50 py-20 text-center"
+      data-usal="fade-u blur duration-800"
+    >
       <p className="font-display text-lg text-foreground">Próximamente.</p>
       <p className="mt-2 text-sm text-muted-foreground">
         Estamos preparando los primeros casos. Cargá proyectos desde{" "}

@@ -22,7 +22,7 @@ export function Footer() {
             
             <h2 
               className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
-              data-usal="fade-u split-word split-delay-60 duration-800 delay-100"
+              data-usal="fade-u duration-800 delay-100"
             >
               ¿Tenés una idea?
               <br />
@@ -31,7 +31,7 @@ export function Footer() {
             
             <p 
               className="mt-6 max-w-xl text-base text-primary-foreground/70 md:text-lg"
-              data-usal="fade-r duration-700 delay-400"
+              data-usal="fade-r duration-700 delay-300"
             >
               Contanos en qué estás trabajando y te respondemos en menos de 24hs.
             </p>
@@ -39,7 +39,7 @@ export function Footer() {
             {/* Botones de contacto */}
             <div 
               className="mt-10 flex flex-wrap gap-3"
-              data-usal="split-item split-zoomin split-delay-100 delay-500 duration-700"
+              data-usal="fade-u duration-700 delay-400"
             >
               <a
                 href="mailto:hola@paralelo.tech"
@@ -76,10 +76,7 @@ export function Footer() {
                 <p className="text-xs uppercase tracking-wider text-primary-foreground/50">
                   Seguinos
                 </p>
-                <ul 
-                  className="mt-2 space-y-1.5 text-sm"
-                  data-usal="split-item split-fade-l split-delay-80 delay-550"
-                >
+                <ul className="mt-2 space-y-1.5 text-sm">
                   <li>
                     <a
                       href="https://instagram.com"
@@ -119,7 +116,7 @@ export function Footer() {
         {/* Footer bottom */}
         <div 
           className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-primary-foreground/10 pt-8 md:flex-row md:items-center"
-          data-usal="fade-u duration-800 delay-700"
+          data-usal="fade-u duration-800 delay-600"
         >
           <img 
             src={logo} 
