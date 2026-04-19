@@ -265,6 +265,12 @@
   }
 }
 
+/* Bounce suave para flechitas del scroll indicator */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
 /* Scroll horizontal infinito para tech stack */
 @keyframes scroll-x {
   0% { transform: translateX(0); }
