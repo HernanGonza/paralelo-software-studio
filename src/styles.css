@@ -222,6 +222,22 @@
    ANIMACIONES PERSONALIZADAS
    ============================================ */
 
+/* Microinteracción del logo: las dos L se elevan, escalan y brillan */
+.logo-paralelo .logo-l {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              text-shadow 0.45s ease,
+              color 0.3s ease;
+  transform-origin: 50% 100%;
+}
+.logo-paralelo:hover .logo-l {
+  transform: translateY(-2px) scaleY(1.18);
+  text-shadow: 0 0 14px color-mix(in oklab, var(--celeste) 65%, transparent);
+}
+.logo-paralelo:hover .logo-l:nth-of-type(2) {
+  transition-delay: 80ms;
+}
+
 /* Float slow para el isotipo */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
