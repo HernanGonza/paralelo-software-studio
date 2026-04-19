@@ -1,11 +1,16 @@
 import iso from "@/assets/paralelo-iso.png";
+import { FloatingParticles } from "./FloatingParticles";
+import { ScrollArrow, ScrollMouse } from "./ScrollIndicator";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-hero pt-32 pb-24 md:pt-40 md:pb-32">
+    <section className="relative isolate overflow-hidden bg-hero pt-32 pb-24 md:pt-40 md:pb-32 min-h-screen flex flex-col">
       <div className="absolute inset-0 -z-10 grid-bg" aria-hidden />
+      
+      {/* Partículas flotantes */}
+      <FloatingParticles />
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 flex-1 flex items-center">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge */}
           <div 
@@ -18,7 +23,7 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Título principal - animación sin split para preservar HTML */}
+          {/* Título principal */}
           <h1 
             className="font-display text-5xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-7xl lg:text-8xl"
             data-usal="fade-u duration-800"
@@ -65,6 +70,10 @@ export function Hero() {
           <img src={iso} alt="" className="h-[420px] w-[420px] animate-float-slow" />
         </div>
       </div>
+
+      {/* Scroll Indicators - dejá los dos y elegí después cuál te gusta */}
+      <ScrollMouse />
+      {/* <ScrollArrow /> */}
     </section>
   );
 }

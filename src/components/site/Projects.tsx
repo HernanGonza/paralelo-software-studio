@@ -100,67 +100,77 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       }
     : {};
 
-  // Usar zoomin vertical para evitar scroll horizontal
   const delay = 300 + index * 100;
 
   return (
     <Wrapper
       {...wrapperProps}
-      className="group block overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-smooth hover:-translate-y-1 hover:border-celeste/60 hover:shadow-elegant"
+      className="card-shine group relative block overflow-hidden rounded-3xl border border-border/50 bg-card/80 backdrop-blur-sm shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-celeste/40 hover:shadow-elegant"
       data-usal={`zoomin-u duration-800 delay-${delay}`}
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-        {project.image_url ? (
-          <img
-            src={project.image_url}
-            alt={project.title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-smooth group-hover:scale-105"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-primary text-primary-foreground/60">
-            <span className="font-display text-2xl">{project.title}</span>
-          </div>
-        )}
-        {project.year && (
-          <span className="absolute right-4 top-4 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
-            {project.year}
-          </span>
-        )}
-      </div>
+      {/* Borde con gradiente sutil */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-celeste/20 via-transparent to-primary/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      
+      {/* Efecto shine */}
+      <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine" />
 
-      <div className="p-7">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            {project.client && (
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                {project.client}
-              </p>
-            )}
-            <h3 className="mt-1 font-display text-xl font-semibold">
-              {project.title}
-            </h3>
-          </div>
-          {project.project_url && (
-            <span className="mt-1 text-celeste transition-smooth group-hover:translate-x-1">
-              ↗
+      <div className="relative">
+        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+          {project.image_url ? (
+            <img
+              src={project.image_url}
+              alt={project.title}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-primary text-primary-foreground/60">
+              <span className="font-display text-2xl">{project.title}</span>
+            </div>
+          )}
+          {project.year && (
+            <span className="absolute right-4 top-4 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
+              {project.year}
             </span>
           )}
+          
+          {/* Overlay en hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">{project.description}</p>
 
-        {project.technologies && project.technologies.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.technologies.map((t) => (
-              <span
-                key={t}
-                className="rounded-full border border-border bg-background px-2.5 py-1 text-xs text-muted-foreground"
-              >
-                {t}
+        <div className="relative p-7">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              {project.client && (
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                  {project.client}
+                </p>
+              )}
+              <h3 className="mt-1 font-display text-xl font-semibold transition-colors group-hover:text-celeste">
+                {project.title}
+              </h3>
+            </div>
+            {project.project_url && (
+              <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-celeste/10 text-celeste transition-all duration-300 group-hover:bg-celeste group-hover:text-white group-hover:translate-x-1">
+                ↗
               </span>
-            ))}
+            )}
           </div>
-        )}
+          <p className="mt-3 text-sm text-muted-foreground">{project.description}</p>
+
+          {project.technologies && project.technologies.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.technologies.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-border bg-background/80 px-2.5 py-1 text-xs text-muted-foreground backdrop-blur-sm transition-colors group-hover:border-celeste/30 group-hover:text-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </Wrapper>
   );
@@ -169,7 +179,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 function EmptyState() {
   return (
     <div 
-      className="rounded-3xl border border-dashed border-border bg-card/50 py-20 text-center"
+      className="rounded-3xl border border-dashed border-border bg-card/50 py-20 text-center backdrop-blur-sm"
       data-usal="fade-u blur duration-800"
     >
       <p className="font-display text-lg text-foreground">Próximamente.</p>

@@ -219,14 +219,111 @@
   }
 }
 
+/* ============================================
+   ANIMACIONES PERSONALIZADAS
+   ============================================ */
+
+/* Float slow para el isotipo */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 
+/* Fade up básico */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Efecto shine para tarjetas */
+@keyframes shine {
+  from { transform: translateX(-100%) skewX(-12deg); }
+  to { transform: translateX(200%) skewX(-12deg); }
+}
+.group:hover .animate-shine {
+  animation: shine 0.8s ease-out forwards;
+}
+
+/* Scroll wheel animation para el mouse */
+@keyframes scroll-wheel {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(8px); }
+}
+.animate-scroll-wheel {
+  animation: scroll-wheel 1.5s ease-in-out infinite;
+}
+
+/* Bounce lento para flechas */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Delay para animaciones */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+
+/* Scroll horizontal infinito para tech stack */
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-x {
+  animation: scroll-x 30s linear infinite;
+}
+
+/* Pause en hover */
+.animate-scroll-x:hover {
+  animation-play-state: paused;
+}
+
+/* Glassmorphism para tarjetas */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-shine:hover::before {
+  opacity: 1;
+}
+
+/* Efecto de brillo sutil en bordes */
+.card-shine::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(48, 188, 229, 0.3) 0%,
+    transparent 50%,
+    rgba(85, 136, 230, 0.2) 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-shine:hover::after {
+  opacity: 1;
+}

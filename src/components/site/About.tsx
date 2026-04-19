@@ -62,17 +62,14 @@ export function About() {
               paralelo con vos: escuchamos, prototipamos y entregamos producto.
             </p>
 
-            {/* Stats con count animation */}
+            {/* Stats */}
             <dl 
               className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8"
-              data-usal="split-item split-fade-u split-delay-100 delay-400"
+              data-usal="fade-u duration-700 delay-400"
             >
-              {stats.map((s, i) => (
+              {stats.map((s) => (
                 <div key={s.label}>
-                  <dt 
-                    className="font-display text-2xl font-bold text-foreground md:text-3xl"
-                    data-usal={i === 2 ? "count-[100] duration-2000 delay-600" : undefined}
-                  >
+                  <dt className="font-display text-2xl font-bold text-foreground md:text-3xl">
                     {s.value}
                   </dt>
                   <dd className="mt-1 text-xs text-muted-foreground">{s.label}</dd>
@@ -87,30 +84,43 @@ export function About() {
               {values.map((v, i) => (
                 <article
                   key={v.title}
-                  className={`group rounded-2xl border border-border bg-card p-7 shadow-card transition-smooth hover:border-celeste/60 hover:shadow-elegant ${
+                  className={`card-shine group relative overflow-hidden rounded-2xl border border-border/50 bg-card/80 p-7 backdrop-blur-sm shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-celeste/40 hover:shadow-elegant ${
                     i === 0 ? "sm:translate-y-6" : ""
                   } ${i === 2 ? "sm:translate-y-6" : ""}`}
                   data-usal={`flip-u duration-800 delay-${200 + i * 150}`}
                 >
-                  <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 font-display text-sm font-bold text-primary transition-smooth group-hover:bg-primary group-hover:text-primary-foreground">
-                    0{i + 1}
+                  {/* Efecto shine */}
+                  <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine" />
+                  
+                  {/* Borde gradiente */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-celeste/10 via-transparent to-primary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  
+                  <div className="relative">
+                    <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 font-display text-sm font-bold text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+                      0{i + 1}
+                    </div>
+                    <h3 className="font-display text-lg font-semibold transition-colors group-hover:text-celeste">{v.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {v.description}
+                    </p>
                   </div>
-                  <h3 className="font-display text-lg font-semibold">{v.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {v.description}
-                  </p>
                 </article>
               ))}
               
               {/* Quote card */}
               <article 
-                className="rounded-2xl border border-primary/20 bg-gradient-primary p-7 text-primary-foreground shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-primary p-7 text-primary-foreground shadow-elegant"
                 data-usal="zoomin blur duration-1000 delay-700"
               >
-                <p className="font-display text-xl font-semibold leading-snug">
-                  "Construimos software que tu equipo realmente quiere usar."
-                </p>
-                <p className="mt-4 text-sm opacity-80">— Equipo Paralelo</p>
+                {/* Efecto shine */}
+                <div className="shine-effect absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:animate-shine" />
+                
+                <div className="relative">
+                  <p className="font-display text-xl font-semibold leading-snug">
+                    "Construimos software que tu equipo realmente quiere usar."
+                  </p>
+                  <p className="mt-4 text-sm opacity-80">— Equipo Paralelo</p>
+                </div>
               </article>
             </div>
           </div>
